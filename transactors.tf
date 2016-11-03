@@ -111,7 +111,7 @@ resource "aws_launch_configuration" "transactor" {
   iam_instance_profile = "${aws_iam_instance_profile.transactor.name}"
   security_groups      = ["${aws_security_group.datomic.id}"]
   user_data            = "${data.template_file.transactor_user_data.rendered}"
-  associate_public_ip_address = true
+  associate_public_ip_address = "${var.transactor_public_ip}"
   ephemeral_block_device {
     device_name  = "/dev/sdb"
     virtual_name = "ephemeral0"

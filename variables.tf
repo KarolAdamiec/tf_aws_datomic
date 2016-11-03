@@ -22,12 +22,15 @@ variable "peer_availability_zones" {
 }
 
 variable "peer_instance_type" {
-  default = "t2.small"
+  default = "t2.micro"
 }
 variable "peer_subnet_id" {
 
 }
 variable "peer_public_ip" {
+  default = false
+}
+variable "transactor_public_ip" {
   default = false
 }
 variable "peer_monitoring" {
