@@ -71,6 +71,7 @@ resource "aws_iam_instance_profile" "transactor" {
 
 # security group for transactor access. (for both peers and transactor)
 resource "aws_security_group" "datomic" {
+  vpc_id = "${var.vpc_id}"
   ingress {
     from_port = 4334
     to_port   = 4334
@@ -108,7 +109,7 @@ resource "aws_launch_configuration" "transactor" {
   image_id             = "${data.aws_ami.transactor.id}"
   instance_type        = "${var.transactor_instance_type}"
   iam_instance_profile = "${aws_iam_instance_profile.transactor.name}"
-  security_groups      = ["${aws_security_group.datomic.name}"]
+  security_groups      = ["${aws_security_group.datomic.id}"]
   user_data            = "${data.template_file.transactor_user_data.rendered}"
 
   ephemeral_block_device {

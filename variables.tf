@@ -11,6 +11,7 @@ variable "system_name" {
 variable "datomic_license" {}
 
 variable "peer_ssh_key" {}
+variable "vpc_id" {}
 
 variable "peer_ami" {
   default = "ami-6c14310f" # stock ubuntu 14.04 LTS (ap-southeast-2)
@@ -24,7 +25,7 @@ variable "peer_instance_type" {
   default = "t2.small"
 }
 variable "peer_subnet_id" {
-  
+
 }
 variable "peer_public_ip" {
   default = false
