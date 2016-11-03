@@ -145,7 +145,8 @@ data "template_file" "transactor_user_data" {
 
 # autoscaling group for launching transactors
 resource "aws_autoscaling_group" "transactors" {
-  availability_zones   = "${var.transactor_availability_zones}"
+  #availability_zones   = "${var.transactor_availability_zones}"
+  vpc_zone_identifier  =  ["${var.peer_subnet_id}"]
   name                 = "${var.system_name}_transactors"
   max_size             = "${var.transactors}"
   min_size             = "${var.transactors}"
