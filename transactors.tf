@@ -71,6 +71,7 @@ resource "aws_iam_instance_profile" "transactor" {
 
 # security group for transactor access. (for both peers and transactor)
 resource "aws_security_group" "datomic" {
+  vpc_id = "${var.vpc_id}"
   ingress {
     from_port = 4334
     to_port   = 4334
