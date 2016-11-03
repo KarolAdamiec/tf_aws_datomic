@@ -50,6 +50,7 @@ resource "aws_iam_instance_profile" "peer" {
 
 # security group for ssh access (from anywhere)
 resource "aws_security_group" "ssh" {
+  vpc_id = "${var.vpc_id}"
   ingress {
     from_port   = 22
     to_port     = 22
