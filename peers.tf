@@ -102,9 +102,9 @@ resource "aws_instance" "peer_instance" {
     user_data            = "${data.template_file.peer_user_data.rendered}"
 
     tags {
-        Environment = "${var.system_name}"
+        Environment = "${var.env}"
         Role = "Datomic Peer"
-        Name = "${var.system_name} - Peer"
+        Name = "${var.env} - Peer"
 
 
     }

@@ -155,7 +155,17 @@ resource "aws_autoscaling_group" "transactors" {
 
   tag {
     key                 = "Name"
-    value               = "${var.system_name}"
+    value               = "${var.env} - Transactor"
+    propagate_at_launch = true
+  }
+  tag {
+    key                 = "Environment"
+    value               = "${var.env}"
+    propagate_at_launch = true
+  }
+  tag {
+    key                 = "Role"
+    value               = "Datomic Transactor"
     propagate_at_launch = true
   }
 }

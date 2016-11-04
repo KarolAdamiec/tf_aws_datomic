@@ -36,6 +36,9 @@ variable "transactor_public_ip" {
 variable "peer_monitoring" {
   default = false
 }
+variable "env" {
+  default = "dev"
+}
 
 variable "peers" {
   default = "1"
