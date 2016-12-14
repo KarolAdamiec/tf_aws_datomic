@@ -122,3 +122,6 @@ output "peer_iam_role" {
 output "peer_iam_role_arn" {
   value = "${aws_iam_role.peer.arn}"
 }
+output "peer_iam_role_policy_arn" {
+  value = "${aws_iam_role_policy.peer_dynamo_access.arn}"
+}
